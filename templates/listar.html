@@ -1,35 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Nutricionistas Cadastradas</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Lista de Nutricionistas{% endblock %}
 
-<h2>Nutricionistas cadastradas</h2>
+{% block content %}
+<h2 class="mb-4">Nutricionistas Cadastradas</h2>
 
-<table border="1" cellpadding="5">
-  <tr>
-    <th>Nome</th>
-    <th>Email</th>
-    <th>CRN</th>
-    <th>Especialidade</th>
-    <th>Ações</th>
-  </tr>
+<table class="table table-striped table-bordered shadow-sm">
+    <thead class="table-primary">
+    <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>CRN</th>
+        <th>Especialidade</th>
+        <th class="text-center">Ações</th>
+    </tr>
+    </thead>
 
-  {% for n in nutricionistas %}
-  <tr>
-    <td>{{ n.nome_completo }}</td>
-    <td>{{ n.email }}</td>
-    <td>{{ n.crn }}</td>
-    <td>{{ n.especialidade }}</td>
-    <td>
-      <a href="/editar/{{ n.id }}/">Editar</a> |
-      <a href="/excluir/{{ n.id }}/" onclick="return confirm('Excluir este cadastro?')">Excluir</a>
-    </td>
-  </tr>
-  {% endfor %}
+    <tbody>
+    {% for n in nutricionistas %}
+        <tr>
+            <td>{{ n.nome_completo }}</td>
+            <td>{{ n.email }}</td>
+            <td>{{ n.crn }}</td>
+            <td>{{ n.especialidade }}</td>
+            <td class="text-center">
+
+                <a href="/editar/{{ n.id }}/" class="btn btn-sm btn-warning">Editar</a>
+
+                <a href="/excluir/{{ n.id }}/"
+                   onclick="return confirm('Tem certeza que deseja excluir?')"
+                   class="btn btn-sm btn-danger">
+                   Excluir
+                </a>
+
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
 </table>
 
-</body>
-</html>
+{% endblock %}
