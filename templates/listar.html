@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Nutricionistas Cadastradas</title>
+</head>
+<body>
+
+<h2>Nutricionistas cadastradas</h2>
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th>Nome</th>
+    <th>Email</th>
+    <th>CRN</th>
+    <th>Especialidade</th>
+    <th>Ações</th>
+  </tr>
+
+  {% for n in nutricionistas %}
+  <tr>
+    <td>{{ n.nome_completo }}</td>
+    <td>{{ n.email }}</td>
+    <td>{{ n.crn }}</td>
+    <td>{{ n.especialidade }}</td>
+    <td>
+      <a href="/editar/{{ n.id }}/">Editar</a> |
+      <a href="/excluir/{{ n.id }}/" onclick="return confirm('Excluir este cadastro?')">Excluir</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html>
