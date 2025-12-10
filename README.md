@@ -19,50 +19,43 @@
 #### 5. Em seguida, abra o projeto no PyCharm.
    
 ## Configuração do ambiente (Terminal)
-### No terminal integrado do PyCharm, para criar um ambiente virtual, execute:
+### 1. No terminal integrado do PyCharm, para criar um ambiente virtual, execute:
 
-#### python -m venv venv
+##### python -m venv venv<br>
 
-### Ative:
+### 2. Ative:
 
 #### Windows:
-#### venv\Scripts\activate
+##### venv\Scripts\activate
 
 #### Linux/Mac:
-#### source venv/bin/activate
+##### source venv/bin/activate
 
-### Instale o django:
-#### pip install django
+### 3. Instale o django:
+##### pip install django
 
-### Rode as migrações do banco:
-#### python manage.py migrate
+### 4. Rode as migrações do banco:
+##### python manage.py migrate
 
-### Execute o servidor:
-#### python manage.py runserver
+### 5. Execute o servidor:
+##### python manage.py runserver
 
 
-Tecnologias Utilizadas
+## Tecnologias Utilizadas
+#### - Python / Django
+#### - Django Templates
+#### - HTML5
+#### - Bootstrap 5
+#### - CSS
+#### - Git/GitHub
 
-Python / Django
+## Funcionalidades do Sistema
+#### - Tela de boas-vindas
+#### - Cadastro de nutricionistas
+#### - Listagem de nutricionistas cadastradas, podendo editar o excluir nutricionistas
+#### - Interface estilizada com Bootstrap
+#### - Navegação simples e acessível 
 
-Django Templates
+## Autores
+#### O projeto foi desenvolvido por Bruna Vitória de Melo Delgobo e Carolina Giacchini Kloth, alunas do 3º ano do curso Técnico em Informática integrado ao Ensino Médio no Instituto Federal do Paraná – Centro de Referência Ponta Grossa. Este sistema foi implementado como atividade avaliativa da disciplina Desenvolvimento Web II, atualmente ministrada pelo Professor Dr. João Henrique Berssanette.
 
-HTML5
-
-Bootstrap 5
-
-CSS
-
-Git/GitHub
-
-Funcionalidades do Sistema
-
-Tela de boas-vindas
-
-Cadastro de nutricionistas
-
-Listagem de nutricionistas cadastradas
-
-Interface estilizada com Bootstrap
-
-Navegação simples e acessível
