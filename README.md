@@ -45,6 +45,7 @@
 ## Tecnologias Utilizadas
 #### - Python / Django
 #### - Django Templates
+#### - SQLite 
 #### - HTML5
 #### - Bootstrap 5
 #### - CSS
