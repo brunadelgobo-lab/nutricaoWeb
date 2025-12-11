@@ -1,27 +1,27 @@
-{% extends "base.html" %}
-{% block title %}Registrar{% endblock %}
+{% extends "base.html" %} <!-- estende da base do bootstrap -->
+{% block title %}Registrar{% endblock %} <!--define o título da página-->
 
-{% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-6">
+{% block full_content %} <!-- bloco específico do registrar, feito na base -->
+<div class="d-flex justify-content-center align-items-start"
+     style="padding-top:60px; min-height:70vh;"> <!--estilo-->
 
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <h3 class="text-center mb-4">Cadastrar Nutricionista</h3>
+    <div style="max-width:420px; width:90%; background:white; border-radius:14px;
+                padding:30px; box-shadow:0 8px 28px rgba(0,0,0,0.15);"> <!--estilo-->
 
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form.as_p }}
+        <h3 class="text-center mb-4">Cadastrar Nutricionista</h3> <!-- texto do card -->
 
-                    <button class="btn btn-success w-100" type="submit">Cadastrar</button>
-                </form>
-
-                <p class="mt-3 text-center">
-                    Já tem conta? <a href="/login/">Entrar</a>
-                </p>
+        <form method="POST"> <!-- formulario (inputs e button) -->
+            {% csrf_token %}
+            <div style="max-width:350px;" class="mx-auto">
+                {{ form.as_p }}
             </div>
-        </div>
+            <button class="btn btn-primary w-100 mt-3" type="submit">Cadastrar</button>
+        </form>
+
+        <p class="mt-3 text-center"> <!-- link para retornar à tela de login -->
+            Já tem conta? <a href="/login/">Entrar</a>
+        </p>
 
     </div>
 </div>
-{% endblock %}
+{% endblock full_content %}

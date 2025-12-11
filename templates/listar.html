@@ -1,41 +1,45 @@
-{% extends "base.html" %}
-{% block title %}Lista de Nutricionistas{% endblock %}
+{% extends "base.html" %} <!-- estende da base do bootstrap -->
+{% block title %}Lista de Nutricionistas{% endblock %} <!--define o título da página-->
 
 {% block content %}
-<h2 class="mb-4">Nutricionistas Cadastradas</h2>
 
-<table class="table table-striped table-bordered shadow-sm">
-    <thead class="table-primary">
-    <tr>
-        <th>Nome</th>
-        <th>Email</th>
-        <th>CRN</th>
-        <th>Especialidade</th>
-        <th class="text-center">Ações</th>
-    </tr>
-    </thead>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 style="color:#556B2F; font-weight:600;">Nutricionistas Cadastradas</h2> <!-- texto do card -->
 
-    <tbody>
-    {% for n in nutricionistas %}
-        <tr>
-            <td>{{ n.nome_completo }}</td>
-            <td>{{ n.email }}</td>
-            <td>{{ n.crn }}</td>
-            <td>{{ n.especialidade }}</td>
-            <td class="text-center">
+    <a href="/logout/" class="btn btn-oliva-outline">Encerrar sessão</a> <!-- link para retornar à tela de login -->
+</div>
 
-                <a href="/editar/{{ n.id }}/" class="btn btn-sm btn-warning">Editar</a>
+<div class="d-flex justify-content-center">
+    <div style="width: 100%; max-width: 850px;">
+        <table class="table table-striped table-bordered shadow-sm text-center align-middle"> <!--estilo - bootstrap -->
+            <thead style="background-color:#6B8E23; color:white;"> <!--estilo-->
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>CRN</th>
+                    <th>Especialidade</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
 
-                <a href="/excluir/{{ n.id }}/"
-                   onclick="return confirm('Tem certeza que deseja excluir?')"
-                   class="btn btn-sm btn-danger">
-                   Excluir
-                </a>
+            <tbody>
+                {% for n in nutricionistas %} <!--para cada nutricionista cadastrado (id)-->
+                <tr>
+                    <td>{{ n.nome_completo }}</td> <!--exibe os dados-->
+                    <td>{{ n.email }}</td> <!--exibe os dados-->
+                    <td>{{ n.crn }}</td> <!--exibe os dados-->
+                    <td>{{ n.especialidade }}</td> <!--exibe os dados-->
+                    <td>
+                        <a href="/editar/{{ n.id }}/" class="btn btn-sm btn-warning">Editar</a>  <!-- link para ir à tela de editar -->
+                        <a href="/excluir/{{ n.id }}/" onclick="return confirm('Tem certeza que deseja excluir?')" class="btn btn-sm btn-danger">Excluir</a> <!-- botão que mostra
+                        pop up para confirmar exclusão do nutricionista-->
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
 
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+        </table>
+    </div>
+</div>
 
 {% endblock %}

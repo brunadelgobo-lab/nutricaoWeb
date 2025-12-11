@@ -1,33 +1,37 @@
-{% extends "base.html" %}
-{% block title %}Editar{% endblock %}
+{% extends "base.html" %} <!-- estende da base do bootstrap -->
+{% block title %}Editar{% endblock %} <!--define o título da página-->
 
 {% block content %}
+
+<div class="d-flex justify-content-end mb-3">
+    <a href="/listar/" class="btn btn-oliva-outline">Voltar à Lista</a> <!-- link para retornar à tela de listar -->
+</div>
+
+    <!-- estilo -->
 <div class="row justify-content-center">
     <div class="col-md-6">
 
         <div class="card shadow-sm">
             <div class="card-body">
 
-                <h3 class="text-center mb-4">
-                    Editar: {{ nutri.nome_completo }}
-                </h3>
+                <h3 class="text-center mb-4">Editar: {{ nutri.nome_completo }}</h3>  <!-- texto do card -->
 
-                <form method="POST">
+                <form method="POST" class="text-center"> <!-- formulário para edição dos dados -->
                     {% csrf_token %}
-                    {{ form.as_p }}
 
-                    <button class="btn btn-primary w-100" type="submit">
+                    <div style="max-width:350px;" class="mx-auto">
+                        {{ form.as_p }}
+                    </div>
+
+                    <button class="btn btn-primary w-100" type="submit"> <!-- botão para salvar dados alterados -->
                         Salvar Alterações
                     </button>
                 </form>
-
-                <p class="mt-3 text-center">
-                    <a href="/listar/">Voltar</a>
-                </p>
 
             </div>
         </div>
 
     </div>
 </div>
+
 {% endblock %}

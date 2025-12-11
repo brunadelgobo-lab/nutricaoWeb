@@ -25,6 +25,7 @@ urlpatterns = [
     path("listar/", views.listar_nutricionistas, name="listar"),
     path("editar/<int:id>/", views.editar_nutricionista, name="editar"),
     path("excluir/<int:id>/", views.excluir_nutricionista, name="excluir"),
+
 ]
 
 

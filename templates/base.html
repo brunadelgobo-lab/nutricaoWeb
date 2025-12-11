@@ -1,25 +1,136 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"> <!--importação da fonte poppins-->
     <meta charset="UTF-8">
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title> <!-- bloco de título do django templates-->
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> <!--importação do bootstrap-->
+
+    <!-- estilo: cores, tamanhos, fontes etc -->
+    <style>
+        body {
+            background-color: #f8f8f3; /* branco com leve tom oliva */
+        }
+        .navbar-custom {
+            background-color: #556B2F !important; /* oliva escura */
+        }
+        .navbar-brand, .nav-link, .navbar-text {
+            color: #ffffff !important;
+        }
+        .top-bar {
+            width: 100%;
+            height: 6px;
+            background-color: #6B8E23; /* oliva clara */
+        }
+        .content-box {
+            background: #ffffff;
+            border: 1px solid #d4d8c4;
+            border-radius: 8px;
+            padding: 20px;
+        }
+            /* Tipografia mais elegante */
+        body, button, input {
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* Navbar estilizada */
+        .navbar-custom {
+            background: linear-gradient(90deg, #556B2F, #6B8E23);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        /* Top bar mais fina e moderna */
+        .top-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #6B8E23, #8BA766);
+        }
+
+        /* Container elegante */
+        .content-box {
+            background: #ffffff;
+            border: none;
+            border-radius: 14px;
+            padding: 30px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Hover sutil */
+        .nav-link:hover {
+            opacity: 0.85;
+        }
+
+            /* Botões personalizados */
+        .btn-oliva {
+            background-color: #556B2F !important;
+            border-color: #556B2F !important;
+            color: #ffffff !important;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+        .btn-oliva:hover {
+            background-color: #6B8E23 !important;
+            border-color: #6B8E23 !important;
+        }
+
+        /* Corrige botão azul do Bootstrap */
+        .btn-primary {
+            background-color: #556B2F !important;
+            border-color: #556B2F !important;
+            color: #fff !important;
+        }
+        .btn-primary:hover {
+            background-color: #6B8E23 !important;
+            border-color: #6B8E23 !important;
+        }
+        .btn-oliva-outline {
+            background-color: transparent;
+            border: 2px solid #556B2F;
+            color: #556B2F;
+            border-radius: 8px;
+        }
+        .btn-oliva-outline:hover {
+            background-color: #556B2F;
+            color: white;
+        }
+        .btn-oliva:hover {
+            background-color: #6B8E23;
+            color: #ffffff;
+        }
+
+        .btn-oliva-outline {
+            background-color: transparent;
+            border: 2px solid #556B2F;
+            color: #556B2F;
+            border-radius: 8px;
+        }
+        .btn-oliva-outline:hover {
+            background-color: #556B2F;
+            color: white;
+        }
+    </style>
 
 </head>
-<body class="bg-light">
+<body style="background: linear-gradient(135deg, #e6ecd9, #cdd8b3); min-height:100vh;">
+    <!-- cabeçalho -->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
-    <div class="container">
-        <a class="navbar-brand" href="/">Nutri Web</a>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-custom px-4" style="background:#556B2F;">
+    <span class="navbar-brand mb-0 h1 text-white" style="font-weight:600;">NutriWeb</span>
 </nav>
 
-<div class="container">
-    {% block content %}
-    {% endblock %}
-</div>
-
+        <!-- conteúdo da página -->
+{% block full_content %}
+    <div class="container py-5">
+        <div class="content-box shadow-lg"
+             style="max-width:100%; width:100%; min-height:380px; border-radius:14px;">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+{% endblock full_content %}
 </body>
 </html>
