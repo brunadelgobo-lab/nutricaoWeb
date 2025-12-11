@@ -1,25 +1,23 @@
-{% extends "base.html" %} #estende da base do bootstrap
-{% block title %}Login{% endblock %}
+{% extends "base.html" %} <!-- estende da base do bootstrap -->
+{% block title %}Login{% endblock %} <!--define o título da página-->
 
-{% block full_content %}
+{% block full_content %} <!-- bloco específico do login, feito na base -->
 <div class="container py-5">
     <div class="row align-items-center">
 
-        <!-- Texto à esquerda -->
-        <div class="col-md-6 px-5">
+        <div class="col-md-6 px-5"> <!-- texto à esquerda: design e texto -->
             <h1 style="color:#556B2F; font-weight:750;">Acesse sua conta!</h1>
             <p style="color:#6B8E23; font-size:24px;">
                 Entre para continuar gerenciando nutricionistas.
             </p>
         </div>
 
-        <!-- Card do login — único com o retângulo branco -->
-        <div class="col-md-6 d-flex justify-content-center">
+        <div class="col-md-6 d-flex justify-content-center"> <!-- card à direita: form (inputs do login), botão e link-->
             <div class="content-box shadow-lg" style="width: 100%; max-width: 360px;">
-
                 <h3 class="text-center mb-4">Login</h3>
 
-                <form method="POST">
+                <form method="POST">  <!-- inputs e botão do login-->
+
                     {% csrf_token %}
 
                     <div class="mb-3">
@@ -35,12 +33,12 @@
                     <button class="btn btn-primary w-100" type="submit">Entrar</button>
                 </form>
 
-                <p class="mt-3 text-center">
+                <p class="mt-3 text-center"> <!-- link p/ cadastro-->
                     Não tem cadastro?
                     <a href="/registrar/">Cadastrar aqui</a>
                 </p>
 
-                {% if erro %}
+                {% if erro %} <!-- se a senha ou email for inválido-->
                 <div class="alert alert-danger mt-2">{{ erro }}</div>
                 {% endif %}
             </div>
@@ -48,4 +46,4 @@
 
     </div>
 </div>
-{% endblock full_content %}
+{% endblock full_content %} <!-- fim do bloco específico do login, feito na base -->
