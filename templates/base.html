@@ -120,11 +120,13 @@
     <span class="navbar-brand mb-0 h1 text-white" style="font-weight:600;">NutriWeb</span>
 </nav>
 
+{% block full_content %}
 <div class="container py-5">
     <div class="content-box shadow-lg" style="max-width: 100%; width: 100%; min-height: 380px; border-radius:14px;">
         {% block content %}{% endblock %}
     </div>
 </div>
+{% endblock full_content %}
 
 </body>
 </html>

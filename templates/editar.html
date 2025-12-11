@@ -2,19 +2,25 @@
 {% block title %}Editar{% endblock %}
 
 {% block content %}
+
+<div class="d-flex justify-content-end mb-3">
+    <a href="/listar/" class="btn btn-oliva-outline">Voltar à Lista</a>
+</div>
+
 <div class="row justify-content-center">
     <div class="col-md-6">
 
         <div class="card shadow-sm">
             <div class="card-body">
 
-                <h3 class="text-center mb-4">
-                    Editar: {{ nutri.nome_completo }}
-                </h3>
+                <h3 class="text-center mb-4">Editar: {{ nutri.nome_completo }}</h3>
 
-                <form method="POST">
+                <form method="POST" class="text-center">
                     {% csrf_token %}
-                    {{ form.as_p }}
+
+                    <div style="max-width:350px;" class="mx-auto">
+                        {{ form.as_p }}
+                    </div>
 
                     <button class="btn btn-primary w-100" type="submit">
                         Salvar Alterações
@@ -30,4 +36,5 @@
 
     </div>
 </div>
+
 {% endblock %}
