@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Nutricionista
 from .forms import NutricionistaForm
 
-
+#  função que registra o nutricionista
 def registrar(request):
     if request.method == "POST":
         form = NutricionistaForm(request.POST)
@@ -17,6 +17,7 @@ def registrar(request):
     return render(request, "registrar.html", {"form": form})
 
 
+# função que permite o login do nutricionista
 def login_view(request):
     erro = None
 
@@ -36,11 +37,13 @@ def login_view(request):
 
     return render(request, "login.html", {"erro": erro})
 
+# função que lista os nutricionistas cadastrados
 def listar_nutricionistas(request):
     nutricionistas = Nutricionista.objects.all()
     return render(request, "listar.html", {"nutricionistas": nutricionistas})
 
 
+# função que permite editar os nutricionistas cadastrados
 def editar_nutricionista(request, id):
     nutri = get_object_or_404(Nutricionista, id=id)
 
@@ -62,6 +65,7 @@ def editar_nutricionista(request, id):
     return render(request, "editar.html", {"form": form, "nutri": nutri})
 
 
+# função que permite excluir o nutricionistas (todas as funções estão conectadas ao banco, entao se voce excluir ou editar um nutricionista, muda no banco tambem)
 def excluir_nutricionista(request, id):
     nutri = get_object_or_404(Nutricionista, id=id)
     nutri.delete()
