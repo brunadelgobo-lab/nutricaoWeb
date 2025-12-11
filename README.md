@@ -14,9 +14,10 @@
 ## Como instalar
 #### 1. Abra o GitHub Desktop.
 #### 2. Clique em File > Clone repository.
-#### 3. Cole o link deste repositório (https://github.com/brunadelgobo-lab/nutricaoWeb.git).
+#### 3. Cole o link deste repositório (https://github.com/brunadelgobo-lab/nutricaoWeb/edit/master).
 #### 4. Escolha uma pasta local e selecione Clone.
-#### 5. Em seguida, abra o projeto no PyCharm.
+#### 5. Verifique se você está na branch "master", pois o programa foi desenvolvido nela.
+#### 6. Em seguida, abra o projeto no PyCharm.
    
 ## Configuração do ambiente (Terminal)
 ### 1. No terminal integrado do PyCharm, para criar um ambiente virtual, execute:
